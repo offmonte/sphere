@@ -1,18 +1,19 @@
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { ModeToggle } from "@/components/ui/mode-toggle";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import Image from "next/image";
 
 export default function Home() {
   return (
     <main className="flex min-h-screen items-center justify-between">
-      
+
       <nav className="absolute right-1 top-1">
         <ModeToggle />
       </nav>
-      
+
       <aside className="h-screen hidden lg:block">
-        <Image src="/login.png" alt="login" width={554} height={832}/>
+        <Image src="/login.png" alt="login" width={554} height={832} />
       </aside>
 
       <div>
@@ -25,14 +26,25 @@ export default function Home() {
           </TabsList>
 
           <TabsContent value="entrar">
-            <h1>Form de login</h1>
+            <form action="">
+            <div className="grid w-full max-w-sm items-center gap-1.5">
+                <Label htmlFor="email">Email</Label>
+                <Input type="email" id="email" placeholder="Email" />
+              </div>
+            </form>
+            <form action="">
+              <div className="grid w-full max-w-sm items-center gap-1.5">
+                <Label htmlFor="password">password</Label>
+                <Input type="password" id="password" placeholder="password" />
+              </div>
+            </form>
           </TabsContent>
 
           <TabsContent value="registrar">
             <h1>Form de registrar</h1>
           </TabsContent>
         </Tabs>
-        
+
       </div>
     </main>
   );
